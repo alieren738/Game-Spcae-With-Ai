@@ -1,17 +1,25 @@
 package com.example.AiGameSpace;
+
+import java.io.Serializable;
 import java.util.Scanner;
-public class RobotMove{
+/*
+anlık hızı istersen transient yapmamalısın
+*/
+public class RobotMove implements Serializable{
     String moveDirection;
-    private int speed;
-    int xAmount=500;
-    int yAmount=500;
-    RobotMove(int speed){
-        this.speed=speed;
+    private int speed=0;
+    private transient int maxSpeed;
+    private int xAmount=500;
+    private int yAmount=500;
+    RobotMove(int maxSpeed){
+        this.maxSpeed=maxSpeed;
     }  
     Scanner scanner=new Scanner(System.in);
     RobotDirection direction=new RobotDirection();
-    public void setSpeed(int speed){
-        this.speed=speed;
+    public void IncreaseSpeed(){
+        while(maxSpeed>speed){
+           speed++; 
+        }
     }
     public int getSpeed(){
         return speed;
@@ -36,4 +44,10 @@ public class RobotMove{
         }
     }
   }
+    public int getXAmount(){
+        return xAmount;
+    }
+    public int getYAmount(){
+        return yAmount;
+    }
 }

@@ -1,5 +1,8 @@
 package com.example.AiGameSpace;
-public class RobotBattery {
+
+import java.io.Serializable;
+
+public class RobotBattery implements Serializable {
 private int battery=0;
 public void Charge(){
     if(battery<=100){
@@ -11,7 +14,7 @@ public void Charge(){
         System.out.println("My charge is full");
     }
 }
-public int getBattery(){
-    return battery;
-}
+    public int getBattery(){
+      return battery;
+    }
 }

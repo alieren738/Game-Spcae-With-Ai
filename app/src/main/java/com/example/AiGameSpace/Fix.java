@@ -1,14 +1,15 @@
 package com.example.AiGameSpace;
+
+import java.io.Serializable;
 import java.util.Scanner;
-public class Fix {
+
+public class Fix implements Serializable{
+    //bunların götergeleri %(yüzde)q gibi olmalı 
 private int oil=100;
 private int damage=0;
 private int softwareError=0;
 String oilMark="Castrol";
     Scanner scanner=new Scanner(System.in);
-    public String getCondition(){
-        return  "Oil:"+oil+"\nDamage:"+damage+"\nSoftware Error:"+softwareError;
-    }
     public void robotuYiprat() {
     while(oil > 0 && damage < 100 && softwareError < 100) {
         oil--;
@@ -74,5 +75,14 @@ String oilMark="Castrol";
             }
            }
         }
+    }
+    public int getOil(){
+        return oil;
+    }
+    public int getDamage(){
+        return damage;
+    }
+    public int getSoftwareError(){
+        return softwareError;
     }
 }
